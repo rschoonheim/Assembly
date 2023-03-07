@@ -1,13 +1,5 @@
-#!/usr/bin/zsh
-
-# Compile the assembly file
-nasm -f elf64 -o main.o main.asm
-
-# Link the object file
-ld -o main main.o
-
-# Remove the main.o
-rm main.o
-
-# Run the executable
-./main
+echo "Building the application... \n"
+docker build -q -f Application/Dockerfile -t assembly Application
+clear
+echo "Running the application... \n"
+docker run assembly
